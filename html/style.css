@@ -14,18 +14,42 @@ header{
     height: auto;
 }
 
-#kotono-image {
-    width: 250px;
-    height: auto;
-    margin-left: 100px;
+.interests {
+    width: 940px;
+    margin: 0 auto; 
+    padding: 50px 0;
 }
 
+.interests li {
+    display: inline-block;
+    text-align: center;
+    width: 40%;
+    vertical-align: top;
+    margin: 0 3%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px #9932cc solid;
+    border-radius: 15px;
+}
+
+.interests img {
+    width: 250px;
+    height: auto;
+}
+
+.interests li:hover{
+    border-color: #ffff00;
+}
+
+.interests li:hover h2 {
+    font-size: 32px;
+}
+
+.interests li:active{
+    border-color: #ffa500;
+}
 footer{
     background:#dda0dd; 
     padding: 2px;
     text-align: center;
 }
-
-li {
-    display: inline;
-    }
