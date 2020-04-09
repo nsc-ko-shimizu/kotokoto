@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <label for="number">数字を予想してください。</label>
+        <input id="number"/>
+
+        <button>予測する</button>
+
+        <script>
+            function generateRandomNumber(){
+               let number = Math.round((Math.random() * 10))
+               console.log(number);
+               return number;
+            }
+
+
+            var secret = generateRandomNumber();
+
+            var input = document.querySelector("#number");
+
+            function checkEquals(){
+
+                if(secret == input.value){
+                 alert("正解です！おめでとうございます！");  
+                 secret = generateRandomNumber();
+                }else{
+                 alert("不正解です！残念！");
+                }
+
+                input.value = "";
+                input.focus();
+
+            }
+
+            let button = document.querySelector("button");
+            button.onclick = checkEquals;
+        </script>
+    </body>
+</html>

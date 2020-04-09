@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+
+            function printScreen(message){
+                document.write(message);
+                document.write("<br/>");
+            }
+
+            let number1 = parseInt(prompt("1つ目の数字を入力してください"));
+            let number2 = parseInt(prompt("2つ目の数字を入力してください"));
+ 
+            console.log(number1);
+            console.log(number2);
+
+            result = number1 + number2;
+
+            console.log(result);
+            printScreen("足し算の結果："+result);
+
+            result = number1 - number2;
+
+            console.log(result);
+            printScreen("引き算の結果："+result);
+
+            result = number1 * number2;
+
+            console.log(result);
+            printScreen("掛け算の結果："+result);
+
+            result = number1 / number2;
+
+            console.log(result);
+            printScreen("割り算の結果："+result);
+
+        </script>
+    </body>
+</html>
