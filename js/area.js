@@ -4,14 +4,19 @@
  * length: 縦の長さ
  * width: 横の長さ
  */
+var length = 4;
+var width = 8;
+
+area = length * width;
+
 function getArea(length, width) {
     let area;
 
+    
+
     return area;
-
 }
-
-console.log(length*width);
+console.log("面積：" + area );
 
 /**
  * 四角の周囲を計算してください。
@@ -20,8 +25,11 @@ console.log(length*width);
  * length: 縦の長さ
  * width: 横の長さ
  */
+perimeter = (length + width) * 2;
+
 function getPerimeter(length, width) {
     let perimeter
-
     return perimeter
 }
+
+console.log("周囲："+ perimeter);

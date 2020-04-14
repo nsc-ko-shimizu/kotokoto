@@ -7,8 +7,20 @@ class Car{
         this._maker = maker;
     }
 
-    getMakerName(){
+    get maker(){
         return this._maker;
+    }
+
+    get name() {
+        return this.name;
+    }
+
+    move(){
+        console.log(`${this._name}が走りました。`);
+    }
+
+    stop(){
+        console.log(`${this._name}が止まりました。`);
     }
 }
 
