@@ -10,16 +10,24 @@ console.log("num2: " +num2);
 
 //pattern 1
 //新しく変数を１つ作るパターン
-
-
+let temp = num1;
+num1 = num2;
+num2 = temp;
 
 
 
 //pattern 2
 //num1,num2 以外変数を使わないでやるパターン
 
-//num1 = num2;
-//num2 = num1;
+
+//num1 = 2 + 5
+num1 = num1  + num2;
+
+//num2 = 7 - 5
+num2 = num1 - num2;
+
+//num1 = 7 - 2
+num1 = num1 - num2;
 
 
 

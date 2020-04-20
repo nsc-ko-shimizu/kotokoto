@@ -1,0 +1,28 @@
+
+名前、引数（パラメーター）は必須
+関数の名前は小文字スタート
+
+関数の書き方は　function　名前（　引数（a,b,cなど）が任意　）{}
+
+処理：バーコードを読み取って、商品の情報を取得する
+1.バーコードを読み取る
+2.商品の情報を取得する（バーコードを教える）
+
+（例）
+function readBarcode(){
+    （入力されたバーコードを読み込む）
+    let barcode = 123456;
+    return barcode;（バーコードを返す）
+}
+
+function getProductInfo(barcode){
+    let product = barcodeのデータを取得
+
+    return product;
+}
+
+readBarcode();
+
+readBarcode();
+
+getProductInfo(123456789);
