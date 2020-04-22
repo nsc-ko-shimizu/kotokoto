@@ -1,0 +1,44 @@
+ものとして考えて
+ものができること。ものの特徴
+
+class　名前{}
+
+【今までのやり方】
+let product = ["name",120,100];
+[0]=>名前
+[1]=>値段
+[2]=>在庫
+
+
+【オブジェクト指向】
+let product = new Product();
+product.name,
+product.price
+product.amount
+
+【クラス】
+・クラス名は文頭大文字。ファイル名もクラス名と一緒に
+・_が付いているプロパティは外から見えず変更もできない
+
+class Product{
+    ↓クラス必須メソッド
+        constructor(){
+
+    this => 自分自身
+        this.name = name;
+        this._price = price;
+        this.amount = amount;
+
+    }
+
+    _の中を変更するときは↓のコードを書く
+    changePrice(price){
+        this._price = price;
+    }
+}
+
+let chocolate = new Product("チョコ",95,10);
+
+chocolate.name;  チョコの名前が出てくる
+chocolate.price;　チョコの値段が出てくる
+chocolate.amount;　チョコの在庫が出てくる
