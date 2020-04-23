@@ -1,0 +1,35 @@
+-- SQLite
+-- user：テーブル名
+-- id：ユーザー番号　INTEGERを使う
+-- name：名前              → TEXTタイプを使う
+-- email：メールアドレス   → TEXTタイプを使う
+-- password：パスワード    → TEXTタイプを使う
+
+
+-- CREATE TABLE テーブル名(保存したいデータとデータタイプ);
+-- IF NOT EXISTSをつけるとエラーが出なくなる！
+CREATE TABLE IF NOT EXISTS user(
+    name TEXT,
+    email TEXT,
+    password TEXT
+);
+
+-- テーブルの削除
+-- DROP TABLE テーブル名
+DROP TABLE user;
+
+-- テーブルの更新
+-- ALTER TABLE テーブル名　行いたい変更
+-- テーブル名を変更したいとき　RENAME TO　新しいテーブル名
+-- テーブルのカラム変更　RENAME COLUMN　変更したいカラム　TO　新しいカラム名
+-- テーブルにカラムを追加する　ADD　COLUMN　カラムの定義（カラム名　データタイプ）
+ALTER TABLE user ADD COLUMN id INTEGER;
+
+
+--データを入れる時の書き方
+--INSERT INTO テ－ブル名（どのカラムに入れたいか）VALUES（入れたい値,入れたい値）;
+INSERT INTO user(name,email,password) VALUES (
+    "Kotono",
+    "ko-shimizu@seraku.co.jp",
+    "123456"
+);

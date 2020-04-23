@@ -1,0 +1,46 @@
+-- SQLite
+--テーブルを作成
+--テーブル名を変更
+--テーブルにカラムを追加
+--テーブルのカラムを一つ名前変更
+--テーブルを削除
+ 
+--テーブルデータ
+--名前 test
+--カラム
+--  id <- 整数
+--  name <- 文字列
+--　price <- 小数点付きの数字
+ 
+--  test <- データそのもの
+ 
+-- テーブル名を変更　test => product
+ 
+--　変更するカラム名は　test　=>  image
+
+
+--テーブルを作成
+CREATE TABLE test(
+    id INTEGER,
+    name TEXT,
+    price REAL
+);
+
+INSERT INTO test(id,name,price) VALUES (
+    "5",
+    "あいうえお",
+    "1.7"
+);
+
+--テーブル名を変更
+ALTER TABLE test RENAME TO product;
+
+--テーブルにカラムを追加
+ALTER TABLE product ADD COLUMN test BLOB;
+
+--テーブルのカラムを一つ名前変更
+ALTER TABLE product RENAME COLUMN test TO image;
+
+--テーブルを削除
+DROP TABLE product;
+
