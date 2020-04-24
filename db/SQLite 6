@@ -1,0 +1,96 @@
+-- SQLite
+
+-- * はデーター全部のことを指すよ！
+
+-- 全部取ってくる
+SELECT Name FROM artists;
+
+SELECT * FROM artists WHERE name = "Aerosmith";　--決まっているものを持ってきたいとき
+
+-- カラム　LIKE　検索のパターン　→　文字列に有効
+SELECT * FROM artists WHERE name LIKE "%Ab%";　
+
+-- LIMIT 数　検索結果を制限
+SELECT Name AS "アーティスト", ArtistId FROM artists LIMIT 50;
+
+-- OREDER BY カラム　ASC　=>  昇順 ASCは任意
+SELECT * FROM artists ORDER BY ArtistId ASC; 
+-- OREDER BY カラム　DESC　=>  降順
+SELECT * FROM artists ORDER BY ArtistId DESC;
+
+
+-- WHERE カラム BETWEEN 最低値 AND 最大値 => 指定した間のデータをとってくる
+SELECT * FROM artists WHERE ArtistId BETWEEN 10 AND 15;
+
+-- SQL JOIN 二つ以上のテーブルに検索をかける
+-- JOIN　テーブル名　WHERE　元のテーブル、カラム　＝　テーブル名、カラム
+SELECT Title, Name FROM albums
+JOIN artists
+WHERE albums.ArtistId = artists.ArtistId
+ORDER BY Name;
+
+SELECT * FROM albums
+JOIN artists
+WHERE albums.ArtistId = artists.ArtistId
+AND artists.Name = "AC/DC"
+ORDER BY Name;
+
+
+
+SELECT * FROM tracks
+JOIN albums
+JOIN media_types
+JOIN genres
+WHERE tracks.AlbumId = albums.AlbumId
+AND tracks.MediaTypeId = media_types.MediaTypeId
+AND tracks.GenreId = genres.GenreId
+
+-- ↑のやつの簡単に書けるVer　↓
+--  　テーブル名の前に　AS を付けると長いテーブル名を省略の文字で表示できる！
+
+-- SELECT * FROM tracks　AS tk
+-- JOIN albums AS al,media_types AS mt,genres AS gen
+-- WHERE tk.AlbumId = al.AlbumId
+-- AND tk.MediaTypeId = mt.MediaTypeId
+-- AND tk.GenreId = gen.GenreId
+
+
+メディアタイプが　"AAC audio file" の曲をリストアップする
+表示するデーターは、 TrackId 　tracks.Name
+
+SELECT tracks.TrackId,tracks.Name FROM media_types 
+JOIN tracks
+WHERE media_types.MediaTypeId = tracks.MediaTypeId
+AND media_types.name = "AAC audio file";
+
+
+アーティストIDが84のアーティストの曲をリストアップする
+表示するデータは tracks.Name,albums.Title
+
+SELECT tracks.Name,albums.Title FROM artists
+JOIN albums
+JOIN tracks
+WHERE artists.ArtistId = albums.ArtistId
+AND albums.AlbumId = tracks.AlbumId
+AND artists.ArtistId = 84;
+
+↑　のもっと少なくできるver　↓
+SELECT tracks.Name,albums.Title FROM tracks
+JOIN albums
+WHERE tracks.AlbumId = albums.AlbumId
+AND albums.ArtistId = 84;
+
+
+
+
+
+PlaylistId 11 の曲名をリストアップする
+表示するデータは tracks.Name 
+SELECT tracks.Name FROM playlists
+JOIN playlist_track
+JOIN tracks
+WHERE playlists.PlaylistId = playlist_track.PlaylistId
+AND tracks.TrackId = playlist_track.TrackId
+AND playlists.PlaylistId = 11;
+
+

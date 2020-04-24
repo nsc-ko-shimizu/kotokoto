@@ -1,0 +1,73 @@
+テーブルを作成してください
+
+ 
+
+アーティスト・バンド　2
+    id　INTEGER PRIMARY KEY, 
+    名前 TEXT
+
+ 
+
+アルバム　各アーティスト　2
+    id　INTEGER PRIMARY KEY、
+    タイトル TEXT、
+    アーティスト INTEGER
+
+ 
+
+曲　各アルバム　3
+    id、
+    名前 TEXT、
+    アルバム INTEGER、
+    メディアタイプ INTEGER、
+    ジャンル INTEGER、
+    作曲者 TEXT、
+    長さ（秒数）INTEGER
+
+ 
+
+ジャンル　3
+    id　INTEGER PRIMARY KEY、
+    名前 TEXT
+
+ 
+
+メディアタイプ　3
+    id　INTEGER PRIMARY KEY　
+    名前 TEXT
+
+ 
+
+プレイリスト　2
+    id　INTEGER PRIMARY KEY　
+    名前 TEXT
+
+ 
+
+曲メディアタイプ 3
+    メディアID　INTEGER PRIMARY KEY
+    曲ID INTEGER PRIMARY KEY
+
+ 
+
+
+曲プレイリスト 各プレイリストに曲２
+    プレイリストID INTEGER PRIMARY  KEY
+    曲ID INTEGER PRIMARY KEY 
+
+ 
+
+
+関係性
+アーティスト　1　:　N アルバム
+                 
+
+ 
+
+アルバム 1　:　N　曲
+        
+曲　N　: 1　ジャンル
+    
+曲　N　:　N メディアタイプ
+    
+曲　N　:　N プレイリスト

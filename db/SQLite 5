@@ -1,0 +1,74 @@
+-- SQLite
+
+-- アーティスト
+CREATE TABLE IF NOT EXISTS artist(
+    id INTEGER　PRIMARY KEY,
+    name TEXT
+);
+
+INSERT INTO artist VALUES (1,"Mrs.GreenApple"),(2,"SEVENTEEN");
+
+-- DROP TABLE album;
+
+
+-- アルバム
+CREATE TABLE IF NOT EXISTS album(
+    id INTEGER　PRIMARY KEY,
+    title TEXT,
+    artist_id INTEGER,
+    FOREIGN KEY(artist_id)REFERENCES artist(id)
+);
+
+INSERT INTO album VALUES (1,"Attitude",1),(2,"AnOde",2);
+
+
+-- メディアタイプ
+CREATE TABLE IF NOT EXISTS mediaType(
+    id INTEGER　PRIMARY KEY,
+    name TEXT
+);
+
+INSERT INTO mediaType VALUES (1,"CD"),(2,"Spotify"),(3,"LINEMusic");
+
+
+
+-- 曲メディアタイプ
+-- 曲プレイリスト
+
+
+
+-- ジャンル
+CREATE TABLE IF NOT EXISTS genre(
+    id INTEGER　PRIMARY KEY,
+    name TEXT
+);
+
+INSERT INTO genre VALUES (1,"J-POP"),(2,"K-POP"),(3,"邦ロック");
+
+
+-- プレイリスト
+CREATE TABLE IF NOT EXISTS playList(
+    id INTEGER　PRIMARY KEY,
+    name TEXT
+);
+
+INSERT INTO playList VALUES (1,"お気に入りリスト"),(2,"通勤用リスト");
+
+
+
+-- 曲
+CREATE TABLE IF NOT EXISTS song(
+    id INTEGER　PRIMARY KEY,
+    name TEXT,
+    album_id INTEGER,
+    mediaType_id INTEGER,
+    genre_id INTEGER,
+    composer TEXT,
+    time INTEGER,
+
+    FOREIGN KEY(album_id)REFERENCES album(id),
+    FOREIGN KEY(mediaType_id)REFERENCES mediaType(id),
+    FOREIGN KEY(genre_id)REFERENCES genre(id)
+);
+
+    INSERT INTO song VALUES (1,"インフェルノ",1,2,1,"大森元貴","3:32"),(2,"HIT",2,1,2,"Lee Jihoon","3:23"),(3,"Holiday","Jeon Wonwoo","3:25");

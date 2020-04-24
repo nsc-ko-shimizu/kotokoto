@@ -35,3 +35,5 @@ SQLite のコマンドは大文字
 
 IF NOT EXISTS の意味は CREATE TABLE の中で同じ名前があるかを探してくれて
 同じ名前があったときに処理をしないようにしてくれる　＝　エラーが出なくなる！
+
+ctrl + P で　SQLITE EXPLORER　を開ける

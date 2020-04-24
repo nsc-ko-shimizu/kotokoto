@@ -1,0 +1,62 @@
+-- SQLite
+
+-- 商品
+CREATE TABLE IF NOT EXISTS product(
+    id INTEGER　PRIMARY KEY,
+    price REAL,
+    amount INTEGER
+);
+
+
+-- 在庫
+CREATE TABLE IF NOT EXISTS stock(
+    product_id INTEGER, --上のやつを呼び出している
+    stock_count INTEGER,
+    -- product_idカラムにproductテーブルのidカラムを参照させる
+    FOREIGN KEY(product_id)REFERENCES product(id)
+);
+
+
+cart 1    N product
+     N    1
+
+
+-- カート
+CREATE TABLE IF NOT EXISTS cart(
+    id INTEGER PRIMARY KEY,
+    date TEXT
+);
+
+-- カート商品
+CREATE TABLE IF NOT EXISTS cart_product(
+    cart_id INTEGER,
+    product_id INTEGER,
+    count INTEGER,
+    FOREIGN KEY (cart_id) REFERENCES cart(id),
+    FOREIGN KEY (product_id) REFERENCES product(id)
+);
+
+
+-- 商品と在庫の関係を見極める
+-- 商品テーブル1つの商品に対して、いくつ在庫テーブルにデータを入れるか 1:N 1:1
+-- 在庫テーブルの中にいくつ商品を入れることができるのか　1:N 1:1
+
+product 1   :    1 stock
+        1   :    1
+
+-- 1:1　の場合はFOREIGN KEYはどちらかのテーブルにつける
+-- 1:N の場合は1のほうのテーブルにFOREIGNKEYをつける
+-- N:N　の場合はテーブルを新たに1つ作って、作ったテーブルにFOREIGNKEYを持たせる
+
+product N   :    1 stock
+
+
+INSERT INTO stock VALUES (1,100),(2,50),(3,200),(4,200);
+INSERT INTO cart VALUES (1, "2020/04/23");
+INSERT INTO cart_product VALUES (1,2,3),(1,3,2),(1,1,1);
+
+
+DROP TABLE stock;
+DROP TABLE cart;
+DROP TABLE cart_product;
+DROP TABLE product;
